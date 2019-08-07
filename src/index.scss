@@ -27,6 +27,9 @@ code {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
   padding: 20px;
+}
+
+body, html, .app, #root {
+  height: 100%;
 }

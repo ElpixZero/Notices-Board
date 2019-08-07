@@ -54,13 +54,15 @@ const AddForm = ({columnIndex, isEmptyColumn, onAddColumn, onAddCard}) => {
           </div>
         </div> 
       ) : (
-        <div className="add-form__button-show">
+        <div className="add-form"> 
+          <div className="add-form__button-show">
           <div className="add-form__button-add-btn">
             <img src={AddSvg} alt="Add button icon" />
             <span onClick={setShowForm.bind(this, true)}>
               {isEmptyColumn ? "Добавить еще одну колонку" : "Добавить еще одну карточку"}
             </span>
           </div>
+        </div>
         </div>
       )}
     </Fragment>

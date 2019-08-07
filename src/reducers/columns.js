@@ -67,10 +67,7 @@ export default (state = initialState, action) => {
       });
 
     case 'CARDS:REORDER': 
-      console.log(action);
-
       if (action.payload.sourceColumnId === action.payload.destinationColumnId) {
-        console.log('singole');
         return state.map( (item, index) => {
           if (action.payload.sourceColumnId === `column-${index}`) {
             const result = Array.from(item.cards);
@@ -84,31 +81,34 @@ export default (state = initialState, action) => {
             return item;
         });
       } else {
-        return state.map( (item, index) => { //ИСПРАВИТЬ И СДЕЛАТЬ НОРМАЛЬНО БЕЗ ГЛОБ ПЕРЕМЕННЫХ
-          let removedCard = [];
+        const destinationColumnId = action.payload.destinationColumnId.slice(7);
+        const sourceColumnId = action.payload.sourceColumnId.slice(7);
 
+        const sourceColumn = Array.from(state[sourceColumnId].cards);
+        const removedCard = sourceColumn.splice(action.payload.sourceIndex, 1);
+
+        const destinationColumn = Array.from(state[destinationColumnId].cards);
+        destinationColumn.splice(action.payload.destinationIndex, 0, removedCard[0]);
+
+        return state.map( (item, index) => { 
           if (action.payload.sourceColumnId === `column-${index}`) {
-            const sourceColumn = Array.from(item.cards);
-            removedCard = sourceColumn.splice(action.payload.sourceIndex, 1);
-            console.log(removedCard);
             return {
               title: item.title,
               cards: sourceColumn
             }
-          } 
+          }
 
           if (action.payload.destinationColumnId === `column-${index}`) {
-            const destinationColumn = Array.from(item.cards);
-            destinationColumn.splice(action.payload.destinationIndex, 0, removedCard[0]);
             return {
               title: item.title,
               cards: destinationColumn
             }
           } 
-            return item;
+
+          return item;
         });
       }
-      
+
     default:
       return state;
   }
