@@ -16,14 +16,11 @@ const Columns = ({
 
   const onDragEnd = (result) => {
     const {source, destination} = result;
-    console.log(result);
 
-    if (!destination) {
-      return;
-    }
-
-    if ( source.droppableId === destination.droppableId &&
-      source.index === destination.index
+    if (
+      !destination ||
+      (source.droppableId === destination.droppableId &&
+        source.index === destination.index)
     ) {
       return;
     }
@@ -41,19 +38,20 @@ const Columns = ({
     <Fragment>
       <DragDropContext onDragEnd={onDragEnd}> 
         {items.map( (item, index) => (
-          <Column addColumn={addColumn} 
+          <Column 
+            {...item} 
+            addColumn={addColumn} 
             columnIndex={index}
             AddCard={addCard}
             onRemoveColumn={removeColumn}
             key={index} 
-            {...item} 
             onReorder={reorderCards}
           />
         ))}
-        <Column addColumn={addColumn} AddCard={addCard} />
       </DragDropContext>
+      
+      <Column onAddColumn={addColumn} onAddCard={addCard} />
     </Fragment>
-
   );
 }
 
@@ -65,6 +63,6 @@ const mapStateToProps = ({columns}) => ({
 const mapActionsToProps = {
   ...columnsActions,
   ...cardsActions
-}
+};
 
 export default connect(mapStateToProps, mapActionsToProps)(Columns);

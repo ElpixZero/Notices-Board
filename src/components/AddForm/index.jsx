@@ -19,7 +19,8 @@ const AddForm = ({columnIndex, isEmptyColumn, onAddColumn, onAddCard}) => {
 
   const onAdd = () => {
     if(isEmptyColumn) {
-      onAddColumn(valueForCard);
+      let textForColumn = valueForCard ? valueForCard : 'Нет названия';
+      onAddColumn(textForColumn);
     } else {
       onAddCard(columnIndex, valueForCard);
     }
@@ -34,7 +35,7 @@ const AddForm = ({columnIndex, isEmptyColumn, onAddColumn, onAddCard}) => {
         <div className="add-form">
           <div className="add-form__input">
             <Card>
-              <textarea placeholder={isEmptyColumn ? "Введите название колонки" : "Введите название карточки"} 
+              <textarea placeholder={isEmptyColumn ? "Введите название колонки" : "Введите текст карточки"} 
                 ref={textareaRef} rows="3"
                 onChange={e => setValueForCard(e.target.value)}
                 value={valueForCard}
@@ -54,7 +55,7 @@ const AddForm = ({columnIndex, isEmptyColumn, onAddColumn, onAddCard}) => {
           </div>
         </div> 
       ) : (
-        <div className="add-form"> 
+        <div className="add-form add-form__button"> 
           <div className="add-form__button-show">
           <div className="add-form__button-add-btn">
             <img src={AddSvg} alt="Add button icon" />

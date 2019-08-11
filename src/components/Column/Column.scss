@@ -1,11 +1,26 @@
 .column {
-  background-color: #dfe3e6;
-  border-radius: 3px;
-  width: 272px;
   margin-right: 12px;
   overflow: auto;
-  max-height: calc(100% - 40px);
+  width: 272px;
+  height: 100%;
   position: relative;
+  white-space: nowrap;
+  flex-shrink: 0;
+
+  [data-react-beautiful-dnd-droppable] {
+    height: 100%;
+  }
+
+  &__inner {
+    max-height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: #dfe3e6;
+    border-radius: 3px;
+    white-space: normal;
+  }
 
   &__title {
     padding: 12px;
@@ -24,5 +39,9 @@
   &__items {
     padding: 0px 12px 0 12px;
     overflow: auto;
+
+    .card {
+      min-height: 43px;
+    }
   }
 }
