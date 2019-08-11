@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Draggable } from "react-beautiful-dnd";
+import ClearSvg from 'assets/сlear.svg';
 
 import './Card.scss';
 
-const Card = ({cardIndex, children, columnIndex}) => {
+const Card = ({cardIndex, children, columnIndex, onRemoveCard}) => {
 
   function isCardEmpty(cardIndex) {
     return !(cardIndex || cardIndex === 0);
@@ -24,7 +25,14 @@ const Card = ({cardIndex, children, columnIndex}) => {
             {...provided.draggableProps}
             {...provided.dragHandleProps}  
           >
-            {children}
+            <div className="card__text">
+              {children}          
+            </div>
+            <img onClick={onRemoveCard.bind(this, columnIndex, cardIndex )} 
+                className="card__button" 
+                src={ClearSvg} 
+                alt="Clear button icon" 
+              />
           </div>
         )}
       </Draggable>

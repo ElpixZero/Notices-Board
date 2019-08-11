@@ -7,4 +7,12 @@
   margin-bottom: 8px;
   font-size: 14px;
   line-height: 19px;
+  display: flex;
+  justify-content: space-between;
+
+
+  &__button {
+    max-width: 12px;
+    cursor: pointer;
+  }
 }

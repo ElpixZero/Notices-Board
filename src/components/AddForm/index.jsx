@@ -7,6 +7,10 @@ import AddSvg from 'assets/add.svg';
 import ClearSvg from 'assets/сlear.svg';
 
 const AddForm = ({columnIndex, isEmptyColumn, onAddColumn, onAddCard}) => {
+  
+  
+  console.log(onAddColumn);
+
   const [showForm, setShowForm] = useState(false);
   const textareaRef = useRef(null);
   const [valueForCard, setValueForCard] = useState("");

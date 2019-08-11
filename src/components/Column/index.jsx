@@ -14,7 +14,9 @@ const Column = ({
   onRemoveColumn, 
   addColumn, 
   AddCard,
+  onRemoveCard
 }) => {
+  console.log();
     
   const removeColumn = () => {
     if (global.confirm('Вы действительно хотите удалить?')) {
@@ -43,7 +45,7 @@ const Column = ({
             { cards && 
               <div className="column__items"> 
                 {cards.map((card, index) => (
-                  <Card key={index} columnIndex={columnIndex} cardIndex={index}>
+                  <Card key={index} onRemoveCard={onRemoveCard} columnIndex={columnIndex} cardIndex={index}>
                     {card}
                   </Card>
                 ))}

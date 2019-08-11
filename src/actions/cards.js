@@ -7,6 +7,14 @@ export default {
     }
   }),
 
+  removeCard: (columnIndex, cardIndex) => ({
+    type: 'CARDS:REMOVE',
+    payload: {
+      columnIndex,
+      cardIndex
+    }
+  }),
+
   reorderCards: ({sourceColumnId, destinationColumnId, sourceIndex, destinationIndex}) => ({
     type: 'CARDS:REORDER',
     payload: {

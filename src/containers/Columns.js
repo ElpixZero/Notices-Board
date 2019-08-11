@@ -5,13 +5,13 @@ import columnsActions from '../actions/columns';
 import cardsActions from '../actions/cards';
 import { DragDropContext } from "react-beautiful-dnd";
 
-
 const Columns = ({
     items, 
     addColumn, 
     addCard, 
     removeColumn, 
     reorderCards, 
+    removeCard
   }) => {
 
   const onDragEnd = (result) => {
@@ -46,11 +46,12 @@ const Columns = ({
             onRemoveColumn={removeColumn}
             key={index} 
             onReorder={reorderCards}
+            onRemoveCard={removeCard}
           />
         ))}
       </DragDropContext>
       
-      <Column onAddColumn={addColumn} onAddCard={addCard} />
+      <Column addColumn={addColumn} onAddCard={addCard} />
     </Fragment>
   );
 }
