@@ -1,36 +1,24 @@
 const initialState = [
   {
-    title: "Month's plans",
+    title: "Планы на месяц",
     cards: [
-      'Go to do the shopping',
-      'Buy some food and go to back to do your homework',
-      'Go to do the shopping',
-      'Go to do tto do the shoppinghe shopping to do the shopping',
-      'Go to do the shopping',
-      'Go to do tto do the shoppinghe to do the shoppingshopping',
-      'Go to do the shopping',
-      'Go to do the to do the shoppingshopping',
-      'Go to do tto do the shoppinghe shopping',
-      'Go to do tto do the shoppinghto do the shoppinge shopping',
-      'Go to do the shopping',
-      'Go to do the shopping',
-      'Go to do thto do the shoppinge shopping',
-      'Go to do the shopping',
-      'Go to do theto do the shopping shopping',
-      'Go to do the shopping',
-      'Go to do the shopping',
-      'Go to do theto do the shopping shopping',
-      'Go to do the sto do the shoppinghopping',
+      'Съездить на море',
+      'Разработка новостного блога',
+      'Бегать по утрам каждые нечетные дни недели',
+      'Уделять по 3 часа изучению Реакта',
+      'Найти работу на позицию Junior Front-end developer',
+      'Изучать NodeJs',
+      '2 часа каждый день на изучение Английского',
     ]
   },
 
   {
-    title: "Year's plans",
+    title: "Планы на Понедельник",
     cards: [
-      '1',
-      '2',
-      '3',
-      '4',
+      'Утренная пробежка',
+      'Поехать в магазин за продуктами',
+      'Чтение "Совершенный код"',
+      'Посмотреть фильм "Кто я"',
     ]
   },
 ];
@@ -53,18 +41,17 @@ export default (state = initialState, action) => {
       });
 
       case 'CARDS:REMOVE':
-      return state.map( (item, index) => {
-          if (action.payload.columnIndex === index) {
-            return {
-              ...item,
-              cards: item.cards.filter( (item, index) => {
-                return !(index === action.payload.cardIndex);
-              }),
+        return state.map( (item, index) => {
+            if (action.payload.columnIndex === index) {
+              return {
+                ...item,
+                cards: item.cards.filter( (item, index) => {
+                  return !(index === action.payload.cardIndex);
+                }),
+              }
             }
-          }
-
-          return item;
-      });
+            return item;
+        });
       
     case 'COLUMNS:ADD':
       return [

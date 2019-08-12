@@ -1,38 +1,20 @@
-import React, {Fragment, useState, useRef, useEffect} from 'react';
-import PropTypes from 'prop-types';
-import './AddForm.scss';
-import Card from '../Card';
+import React, {Fragment} from 'react';
+import Card from '../../containers/Card';
 import Button from '../Button';
 import AddSvg from 'assets/add.svg';
 import ClearSvg from 'assets/сlear.svg';
 
-const AddForm = ({columnIndex, isEmptyColumn, onAddColumn, onAddCard}) => {
-  
-  
-  console.log(onAddColumn);
+import './AddForm.scss';
 
-  const [showForm, setShowForm] = useState(false);
-  const textareaRef = useRef(null);
-  const [valueForCard, setValueForCard] = useState("");
-  
-  useEffect( () => {
-    if (textareaRef.current) {
-      textareaRef.current.focus();
-    }
-  }, [showForm]);
-
-  const onAdd = () => {
-    if(isEmptyColumn) {
-      let textForColumn = valueForCard ? valueForCard : 'Нет названия';
-      onAddColumn(textForColumn);
-    } else {
-      onAddCard(columnIndex, valueForCard);
-    }
-    
-    setValueForCard('');
-    setShowForm(false);
-  }
-
+const AddForm = ({
+  valueForCard, 
+  setValueForCard, 
+  showForm,
+  setShowForm, 
+  textareaRef, 
+  isEmptyColumn, 
+  onAdd
+}) => {
   return (
     <Fragment> 
       { showForm ? (
@@ -46,8 +28,7 @@ const AddForm = ({columnIndex, isEmptyColumn, onAddColumn, onAddCard}) => {
               />
             </Card>
             <div className="add-form__button-add">
-              <Button onClick={onAdd}
-                >
+              <Button onClick={onAdd}>
                 {isEmptyColumn ? "Добавить колонку" : "Добавить карточку"}
               </Button>
               <img onClick={setShowForm.bind(this, false)} 

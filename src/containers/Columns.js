@@ -13,7 +13,7 @@ const Columns = ({
     reorderCards, 
     removeCard
   }) => {
-
+    
   const onDragEnd = (result) => {
     const {source, destination} = result;
 
@@ -55,7 +55,6 @@ const Columns = ({
     </Fragment>
   );
 }
-
 
 const mapStateToProps = ({columns}) => ({
   items: columns

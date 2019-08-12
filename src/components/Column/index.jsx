@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Card from '../Card';
-import AddForm from '../AddForm';
+import Card from '../../containers/Card';
+import AddForm from '../../containers/AddForm';
 import ClearSvg from 'assets/сlear.svg';
 import { Droppable } from "react-beautiful-dnd";
 
@@ -12,11 +12,7 @@ const Column = ({
   title, 
   cards, 
   onRemoveColumn, 
-  addColumn, 
-  AddCard,
-  onRemoveCard
 }) => {
-  console.log();
     
   const removeColumn = () => {
     if (global.confirm('Вы действительно хотите удалить?')) {
@@ -45,7 +41,7 @@ const Column = ({
             { cards && 
               <div className="column__items"> 
                 {cards.map((card, index) => (
-                  <Card key={index} onRemoveCard={onRemoveCard} columnIndex={columnIndex} cardIndex={index}>
+                  <Card key={index} columnIndex={columnIndex} cardIndex={index}>
                     {card}
                   </Card>
                 ))}
@@ -56,8 +52,6 @@ const Column = ({
             <AddForm 
               columnIndex={columnIndex} 
               isEmptyColumn={!cards} 
-              onAddColumn={addColumn} 
-              onAddCard={AddCard} 
             />
           </div>
         </div>
@@ -69,8 +63,6 @@ const Column = ({
         <AddForm
           isEmptyColumn={true}
           columnIndex={columnIndex}
-          onAddColumn={addColumn}
-          onAddCard={AddCard}
         />
       </div>
     </div>

@@ -30,12 +30,6 @@
     cursor: pointer;
   }
 
-  &--empty {
-    .add-form {
-      margin-top: 12px;
-    }
-  }
-
   &__items {
     padding: 0px 12px 0 12px;
     overflow: auto;
