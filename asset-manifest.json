@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/Kanban/static/css/main.70625b16.chunk.css",
+    "main.js": "/Kanban/static/js/main.1aa45901.chunk.js",
+    "main.js.map": "/Kanban/static/js/main.1aa45901.chunk.js.map",
+    "runtime~main.js": "/Kanban/static/js/runtime~main.619b7780.js",
+    "runtime~main.js.map": "/Kanban/static/js/runtime~main.619b7780.js.map",
+    "static/js/2.73bcb093.chunk.js": "/Kanban/static/js/2.73bcb093.chunk.js",
+    "static/js/2.73bcb093.chunk.js.map": "/Kanban/static/js/2.73bcb093.chunk.js.map",
+    "index.html": "/Kanban/index.html",
+    "precache-manifest.ce5d8501e0e9c29a9e6a3b1257cb3941.js": "/Kanban/precache-manifest.ce5d8501e0e9c29a9e6a3b1257cb3941.js",
+    "service-worker.js": "/Kanban/service-worker.js",
+    "static/css/main.70625b16.chunk.css.map": "/Kanban/static/css/main.70625b16.chunk.css.map",
+    "static/media/add.svg": "/Kanban/static/media/add.6cb6e5fc.svg",
+    "static/media/index.scss": "/Kanban/static/media/background.7bce26d5.jpg",
+    "static/media/сlear.svg": "/Kanban/static/media/сlear.5fe0db66.svg"
+  }
+}
