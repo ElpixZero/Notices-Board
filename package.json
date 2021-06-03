@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://elpixzero.github.io/Kanban",
   "dependencies": {
-    "@babel/core": "7.4.3",
+    "@babel/core": "7.14.2",
     "@svgr/webpack": "4.1.0",
     "@typescript-eslint/eslint-plugin": "1.6.0",
     "@typescript-eslint/parser": "1.6.0",
